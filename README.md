@@ -1,5 +1,5 @@
 # bitcoind-alpine
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](https://www.gnu.org/licenses/agpl-3.0.html)
 [![CI](https://github.com/comminutus/bitcoind-alpine/actions/workflows/ci.yaml/badge.svg)](https://github.com/comminutus/bitcoind-alpine/actions/workflows/ci.yaml)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/comminutus/bitcoind-alpine)](https://github.com/comminutus/bitcoind-alpine/releases/latest)
 
@@ -48,5 +48,17 @@ The container exposes the following ports:
 | 8333  | peer-to-peer communication; for node to communicate with other nodes  |
 | 28332 | ZeroMQ port; for subscribing to specific events using a message queue |
 
+
+## Dependencies
+| Name                                               | Version   |
+| -------------------------------------------------- | --------- |
+| [Alpine Linux](https://www.alpinelinux.org/)       | v3.19.1   |
+| [Bitcoin Core](https://github.com/bitcoin/bitcoin) | v26.0.0   |
+
+
 ## License
-This project inherits Bitcoin Core's MIT license - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNU Affero General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
+
+This container image includes compiled [Bitcoin Core](https://github.com/bitcoin/bitcoin) binaries, which is distributed under
+the terms of the MIT License. The corresponding source code can be obtained [here](https://github.com/bitcoin/bitcoin).
+

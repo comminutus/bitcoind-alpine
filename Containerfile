@@ -2,7 +2,7 @@
 # Base Image
 ########################################################################################################################
 # Core Config
-ARG alpine_tag=3.19.0
+ARG alpine_tag=3.19.1
 ARG repo_tag=v26.0
 ARG container_name=bitcoind
 ARG repo=https://github.com/bitcoin/bitcoin
@@ -16,6 +16,7 @@ ARG ports='8332 8333 28332'
 # Defaults
 ARG additional_args=
 ARG build_dir=/tmp/build
+ARG license=$build_dir/source/COPYING
 ARG data_dir=/var/lib/bitcoin
 ARG dist_dir=/usr/local/bin
 ARG install_dir=$dist_dir
@@ -71,7 +72,8 @@ RUN apk add --no-cache $runtime_packages
 
 # Install binaries
 RUN mkdir -p "$install_dir"
-COPY --from=build $dist_dir $install_dir
+COPY --from=build $dist_dir                                     $install_dir
+COPY --from=build $license                                      /usr/share/licenses/bitcoin/
 COPY --from=build $build_dir/source/share/examples/bitcoin.conf $bitcoin_conf
 
 # Environment variables, overridable from container
