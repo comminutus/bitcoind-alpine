@@ -50,7 +50,7 @@ RUN git submodule update --init --force
 
 # Container specific build
 RUN ./autogen.sh
-ARG configure_args=--without-bdb
+ARG configure_args=--with-gui=no
 RUN ./configure $configure_args
 RUN make -j$(nproc)
 RUN make install
